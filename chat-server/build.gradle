@@ -1,0 +1,33 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group 'edu.hm.vs.team7'
+version '1.0-SNAPSHOT'
+
+dependencies {
+
+    // activemq
+    implementation 'org.springframework.boot:spring-boot-starter-activemq'
+    implementation 'org.apache.activemq:activemq-broker:5.15.13'
+
+    // camel
+    implementation 'org.apache.camel:camel-spring-boot-starter:2.25.2'
+    implementation 'org.apache.camel:camel-jackson:2.25.2'
+    implementation 'org.apache.activemq:activemq-camel:5.15.13'
+
+
+    // JAX-B dependencies for JDK 9+
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
